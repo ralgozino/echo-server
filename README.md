@@ -23,6 +23,14 @@ Just point Alertmanager to the `echo-server` and you should see the payload in `
 go build
 ```
 
+### Container image
+
+We use `ko` to build a multi-arch container image with SBOM included.
+
+```console
+KO_DOCKER_REPO=ralgozino ko build --platform=all -B
+```
+
 ## Deploying into a Kubernetes cluster
 
 You can use the following manifest:
