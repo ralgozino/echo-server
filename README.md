@@ -1,7 +1,7 @@
 # echo-server
 
 This is a simple HTTP server that will answer a 200 OK message to every request.
-For every request that arrives the server will print the sender's address, the path used and the body's content.
+For every request that arrives the server will print the sender's address, the path used, and the body's content.
 You can change the listening address by setting the LISTEN_ADDRESS and LISTEN_PORT environment variables.
 
 Available endpoints:
@@ -11,9 +11,9 @@ Available endpoints:
 - `/liveness/` returns always 200. Could change in the future
 - `/<path>/`   returns 200. The request details get printed to stdout.
 
-This server can be used for example to debug if Alertmanager has been properly configured and its sending alerts to the webhooks.
+This server can be used for example to debug if Alertmanager has been properly configured and it's sending alerts to the webhooks.
 
-Just point Alertmanager to the `echo-server` and you should see the payload in `stdout` everytime Alertmanager sends an alert.
+Just point Alertmanager to the `echo-server` and you should see the payload in `stdout` every time Alertmanager sends an alert.
 
 ## Building
 
