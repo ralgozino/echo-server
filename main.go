@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 
+	"github.com/charmbracelet/log"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
@@ -15,7 +15,7 @@ func index(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Fatalf("got error while reading body: %s", err)
 	}
-	log.Printf("⇢ received request from '%s' to path '%s' with following body:\n%s\n", req.RemoteAddr, req.RequestURI, body)
+	log.Info("received request", "from", req.RemoteAddr, "user agent", req.UserAgent(), "path", req.RequestURI, "method", req.Method, "body", "\n"+string(body))
 	fmt.Fprintf(w, "{\"status\": \"ok\"}")
 }
 
@@ -53,6 +53,6 @@ Available endpoints:
 	http.HandleFunc("/health", health)
 	http.HandleFunc("/liveness", liveness)
 
-	log.Printf("server listening on: '%s'", listen_on)
+	log.Info("starting server...", "address", address, "port", port)
 	log.Fatal(http.ListenAndServe(listen_on, nil))
 }
