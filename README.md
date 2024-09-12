@@ -90,4 +90,4 @@ spec:
       targetPort: http
 ```
 
-Now simply configure Alertmanager to send alerts to `http://notificationes-receiver.monitoring.svc`. You should see the payloads in the `notifications-receiver` pod.
+Now simply configure Alertmanager to send alerts to `http://notifications-receiver.monitoring.svc`. You should see the payloads in the `notifications-receiver` pod.
